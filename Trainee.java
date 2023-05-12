@@ -12,13 +12,8 @@ public class Trainee extends User{
     private List<String> notifications = new ArrayList<String>(); //All the notification the Trainee gets
 
     //Trainee Methods
-    //To Login
-    public boolean login(String username, String password){
-        return true;
-    }
-
     //Adds registered programs and their status
-    public void setProgramStauts(String programId, boolean status){
+    public void setProgramStatus(String programId, boolean status){
         programIds.add(programId);
         programStatus.add(status);
     }
@@ -36,6 +31,7 @@ public class Trainee extends User{
 
     //To add Polls for response from the trainee
     public void setPolls(Poll newPoll){
+        System.out.println("Sending Poll to Trainee\n");
         polls.add(newPoll);
     }
 
@@ -45,15 +41,19 @@ public class Trainee extends User{
     }
 
     //To answer the polls
-    public void answerPolls(Scanner scanner){
+    public void answerPolls(List<String> answer){
         List<Poll> pollToAnswer = this.getPolls();
         List<String> response = new ArrayList<String>(); 
 
+        //Trainee answering all the due Polls
         for(int i = 0; i < pollToAnswer.size(); i++){
             List<String> questions = pollToAnswer.get(i).getQuestions();
+
+            System.out.println("Trainee Answering Poll:\n");
             for(int j = 0; j < questions.size(); j ++){
                 System.out.println("Q." + i + " " + questions.get(i));
-                String line = scanner.nextLine();
+                String line = answer.get(i);
+                System.out.println("Answer: " + line);
                 response.add(line);
             }
             pollToAnswer.get(i).setResponse(response);
