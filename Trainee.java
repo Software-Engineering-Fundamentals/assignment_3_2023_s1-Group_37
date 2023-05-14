@@ -5,6 +5,9 @@ import java.util.Scanner;
 //extending the user abstract Class
 public class Trainee extends User{
     //Trainee Variables
+    Cancelation cancelation = new Cancelation();
+    FinanceManager finMan = new FinanceManager();
+    String response;
     private int registrationId; //Registration Id of the Trainee
     private List<String> programIds = new ArrayList<String>();//Program Ids of all the programs Trainee has registered to
     private List<Boolean> programStatus = new ArrayList<Boolean>();//Status telling if a program has been completed
@@ -64,5 +67,23 @@ public class Trainee extends User{
     public void setNotifications(String notificaion){
         notifications.add(notificaion);
     }
+
+    //Trainee initialised the refund request
+    public void cancelTrainingRequest() {
+        System.out.println("\nTrainee creates a cancel training request");
+        System.out.println("Sends cancel request to the system\n");
+    }
+
+    // Trainee has to confirm their request
+    public void confirmRequest() {
+        response = cancelation.confirmRefund();
+
+        if (response.equals("yes")) {
+            finMan.approveRefund();
+        } else {
+            System.out.println("Refund request was cancelled.\n");
+        }
+    }
+
 
 }

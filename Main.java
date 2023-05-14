@@ -9,6 +9,7 @@ public class Main{
         trainee.setProgramStatus("COS2023", true);
         Manager manager = new Manager();
 
+
         //creating sample questions for poll creation
         List<String> questions = new ArrayList<String>();
         questions.add("Q. What would rate the program out of 5?");
@@ -47,5 +48,11 @@ public class Main{
             System.out.println("Sending Notification\n");
             trainee.setNotifications("NOTICE: Complete Your Program to get a Poll");
         }
+
+    //Trainee lodges a refund scenerio
+        //trainee creates a cancel request for their current enrolment
+        trainee.cancelTrainingRequest();
+        //trainee has to confirm their request
+        trainee.confirmRequest();
     }
 }
