@@ -1,3 +1,5 @@
+package src.main.java.model;
+
 abstract class User {
     //User Abstract Class Variables
     private String name; //Name of the User

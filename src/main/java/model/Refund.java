@@ -1,3 +1,5 @@
+package src.main.java.model;
+
 public class Refund {
     
     public void refundApproved() {

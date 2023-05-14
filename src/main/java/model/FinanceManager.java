@@ -1,3 +1,5 @@
+package src.main.java.model;
+
 public class FinanceManager extends User{
     //VARS
     Refund refund = new Refund();

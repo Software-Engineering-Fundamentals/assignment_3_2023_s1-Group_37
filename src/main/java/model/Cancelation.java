@@ -1,3 +1,5 @@
+package src.main.java.model;
+
 import java.util.Scanner;
 
 public class Cancelation {
